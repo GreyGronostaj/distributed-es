@@ -14,7 +14,7 @@
 
 ### Starting existing cluster
 
-> **Warning:** Machines may be assigned different IP addresses than previously. In this case, shit will fall from the sky. Recreate cluster from scratch.
+> **Warning:** Machines may be assigned different IP addresses than previously. In this case, shit will fall from the sky. Cover your head and recreate cluster from scratch.
 
 1. `run-consul`
 2. `docker-machine start host0 host1 host2`
@@ -31,9 +31,7 @@
 
 ### Building custom image
 
-(regular Elasticsearch 2.4.2 image + multicast discovery plugin)
-
-1. `es-mutlicast/create-image`
+1. `es-multicast/create-image`
 
 
 ### Preparing machines
