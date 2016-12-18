@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "lookup_name": "yahoo.com",
+  "cache_ttl": 3
+}
