@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "word": {
+      "type": "string",
+      "index": "not_analyzed"
+    },
+    "nato": {
+      "type": "string",
+      "analyzer": "simple"
+    }
+  }
+}
