@@ -9,7 +9,6 @@
 1. `provision-consul`
 2. `run-consul`
 3. `provision-machines`
-4. (run whatever you wish)
 
 
 ### Starting existing cluster
@@ -29,32 +28,22 @@
 
 ## Elasticsearch
 
-### Building custom image
-
 1. `es-multicast/create-image`
-
-
-### Preparing machines
-
-1. `es-multicast/pull`
-
-
-### Starting ES
-
-- Start 3 instances on 3 different machines and form a cluster: `run-es`
-- Start one instance on any machine:
-
-        docker run -itd --name=<INSTANCE_NAME> --network=iosrnet --network-alias=es es-multicast -Des.cluster.name=iosr -Des.discovery.zen.ping.multicast.enabled=true -Des.discovery.zen.ping.unicast.hosts="es" -Des.network.host=_eth0_
-
+2. `es-multicast/pull`
+3. `run-es`
+4. `crapgen/run-image`
 
 
 ## kurdezbyszek
 
-### Building custom image
-
 1. `kurdezbyszek/create-image`
+2. `kurdezbyszek/pull`
+3. `run-kz-es`
 
 
-### Preparing machines
 
-1. `kurdezbyszek/pull`
+## Web interface
+
+1. `frontend/create-image`
+2. `frontend/pull`
+3. `run-frontend` 
