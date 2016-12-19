@@ -1,6 +1,6 @@
 from http.server import HTTPServer
 
-from kurde.handler import Handler
+from kurde.handlers.handler import Handler
 from kurde.providers import DNSProvider, CachingDNSProvider
 
 
