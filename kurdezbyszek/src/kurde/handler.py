@@ -7,7 +7,7 @@ class Handler(BaseHTTPRequestHandler):
         super().__init__(request, client_address, server)
 
     def respond(self):
-        new_target = self.server.get_target()
+        new_target = 'http://' + self.server.get_target() + self.path
         if self.server.stdout:
             print("Target: '%s'" % new_target)
         self.send_response(HTTPStatus.TEMPORARY_REDIRECT)

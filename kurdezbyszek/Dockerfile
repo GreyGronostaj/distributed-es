@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r /usr/app/etc/requirements.txt
 
 COPY ./src /usr/app/src
 COPY ./test_config.json /usr/app/config
-CMD python /usr/app/src/main.py /usr/app/config/test_config.json
+CMD python /usr/app/src/main.py

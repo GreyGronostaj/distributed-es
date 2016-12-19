@@ -13,18 +13,20 @@ class DummyProvider(object):
 
 
 class DNSProvider(object):
-    def __init__(self, host_name):
+    def __init__(self, host_name, port):
         self.host_name = host_name
+        self.port = port
 
     def get(self):
         answers = dns.resolver.query(self.host_name, 'A')
         random_answer = random.choice(answers)
-        return str(random_answer)
+        return '%s:%d' % (random_answer, self.port)
 
 
 class CachingDNSProvider(object):
-    def __init__(self, host_name, cache_ttl, verbose=False):
+    def __init__(self, host_name, port, cache_ttl, verbose=False):
         self.host_name = host_name
+        self.port = port
         self.ttl = cache_ttl
         self.verbose = verbose
         self.last_update = datetime.fromtimestamp(0)
@@ -42,7 +44,8 @@ class CachingDNSProvider(object):
         return (datetime.now().timestamp() - self.last_update.timestamp()) < self.ttl
 
     def choice_from_current(self):
-        return random.choice(self.last_data)
+        random_answer = random.choice(self.last_data)
+        return '%s:%d' % (random_answer, self.port)
 
     def update_data(self):
         if self.verbose:

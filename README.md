@@ -14,7 +14,7 @@
 
 ### Starting existing cluster
 
-> **Warning:** Machines may be assigned different IP addresses than previously. In this case, shit will fall from the sky. Cover your head and recreate cluster from scratch.
+> **Warning:** Machines may be assigned different IP addresses than previously. It will result in *"no healthy nodes in cluster"* message. In this case, shit will fall from the sky. Cover your head and recreate cluster from scratch: `teardown` && start again.
 
 1. `run-consul`
 2. `docker-machine start host0 host1 host2`

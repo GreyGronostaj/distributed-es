@@ -14,11 +14,11 @@ class Server(HTTPServer):
         return self.target_provider.get()
 
 
-def run(lookup_name: str, cache_ttl: int = 0, verbose: bool = False) -> None:
-    server_address = ('', 80)
+def run(lookup_name: str, listen_port: int = 80, service_port: int = 80, cache_ttl: int = 0, verbose: bool = False) -> None:
+    server_address = ('', listen_port)
     if cache_ttl > 0:
-        provider = CachingDNSProvider(lookup_name, cache_ttl, verbose=verbose)
+        provider = CachingDNSProvider(lookup_name, service_port, cache_ttl, verbose=verbose)
     else:
-        provider = DNSProvider(lookup_name)
+        provider = DNSProvider(lookup_name, service_port)
     server = Server(server_address, Handler, provider, verbose)
     server.serve_forever()
